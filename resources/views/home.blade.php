@@ -6,12 +6,20 @@
         <div class="categories">
             <ul class="categories-list">
                 <li>
-                    <a href="#" class="active">Последние</a>
+                    <a href="{{ route('main-page') }}"
+                        @if (!$categoryId)
+                            class="active"
+                        @endif
+                    >Последние</a>
                 </li>
                 @if ($categories)
                     @foreach ($categories as $category)
                         <li>
-                            <a href="#">{{ $category->title }} <sup>{{ $category->count }}</sup></a>
+                            <a href="{{ route('articlesByCategory', $category->id) }}"
+                                @if (intval($categoryId) === $category->id)
+                                    class="active"
+                                @endif
+                            >{{ $category->title }} <sup>{{ $category->count }}</sup></a>
                         </li>
                     @endforeach
                 @endif
@@ -46,16 +54,4 @@
             </div>
         @endforeach
     </div>
-
-    <nav>
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Назад</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item"><a class="page-link" href="#">5</a></li>
-            <li class="page-item"><a class="page-link" href="#">Вперед</a></li>
-        </ul>
-    </nav>
 @endsection

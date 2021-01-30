@@ -7,13 +7,18 @@ use App\Category;
 
 class HomeController extends Controller
 {
-    public function index() {
-        $lastArticles = Article::latest()->take(6)->get();
+    public function index($categoryId = 0) {
+        $lastArticles = Article::latest();
         $categories = Category::get();
 
+        if ($categoryId) {
+            $lastArticles->where('category_id', $categoryId);
+        }
+
         return view('home', [
-            'articles' => $lastArticles,
-            'categories' => $categories
+            'articles' => $lastArticles->get(),
+            'categories' => $categories,
+            'categoryId' => $categoryId
         ]);
     }
 }

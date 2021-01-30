@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index')->name('main-page');
+Route::get('/category/{category}', 'HomeController@index')->name('articlesByCategory');
 
 Route::get('/articles/{slug}', 'ArticlesController@show')->name('article.show');
 Route::get('/articles/{article}/edit', 'ArticlesController@edit')->name('article.edit');
