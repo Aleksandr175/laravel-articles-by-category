@@ -1,0 +1,160 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+hmtl, body {
+  background-color: #fff;
+  color: #363535;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 200;
+  height: 100vh;
+  margin: 0;
+}
+
+body {
+  background-color: #f2f2f2;
+}
+
+a {
+  color: #363535;
+
+  &:hover {
+    color: #db6700;
+    text-decoration: none;
+  }
+}
+
+.h1 {
+  margin-bottom: 30px;
+}
+
+.header,
+.footer {
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 40px;
+
+  .logo {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .header-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .menu-item {
+      margin-right: 20px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+  }
+}
+
+.footer {
+  background: #363535;
+  margin-bottom: 0;
+  border-bottom: 0;
+
+  a {
+    color: white;
+
+    &:hover {
+      color: #db6700;
+    }
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content {
+  margin-bottom: 80px;
+  flex: 1 0 auto;
+
+  .articles {
+    .card {
+      margin-bottom: 30px;
+      overflow: hidden;
+
+      .preview {
+        height: 200px;
+        display: block;
+
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .card-title {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .card-text {
+        height: 120px;
+        overflow: hidden;
+      }
+
+      .card-info {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        margin-bottom: 10px;
+
+        span {
+          display: inline-block;
+          margin-right: 15px;
+        }
+
+        .far {
+          color: #db6700;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  .pagination {
+    .page-link {
+      color: #363535;
+    }
+
+    .page-link:focus {
+      box-shadow: 0 0 0 3px rgba(0, 0, 255, .2);
+    }
+  }
+
+  .categories-list {
+    margin: 0 0 40px 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin-right: 20px;
+
+      a {
+        color: #363535;
+        display: inline-block;
+
+        &:hover {
+          color: #db6700;
+        }
+
+        &.active {
+          color: #db6700;
+        }
+      }
+    }
+  }
+}
