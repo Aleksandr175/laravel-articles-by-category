@@ -8,15 +8,16 @@ use App\Category;
 class HomeController extends Controller
 {
     public function index($categoryId = 0) {
-        $lastArticles = Article::latest();
         $categories = Category::get();
 
         if ($categoryId) {
-            $lastArticles->where('category_id', $categoryId);
+            $lastArticles = Article::where('category_id', $categoryId);
+        } else {
+            $lastArticles = Article::latest();
         }
 
         return view('home', [
-            'articles' => $lastArticles->get(),
+            'articles' => $lastArticles->paginate(6),
             'categories' => $categories,
             'categoryId' => $categoryId
         ]);
